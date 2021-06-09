@@ -12,5 +12,10 @@ namespace API_Testing_Mini_project
         Task<string> MakePutFollowRequestAsync(string type, string iD);
         Task<string> MakeDeleteFollowRequestAsync(string type, string iD);
         Task<string> ExecuteRequestAsync(RestRequest request);
+
+        Task<string> MakePostCreatePlaylistRequestAsync(string iD);
+        Task<string> MakeGetSinglePlaylistRequestAsync(string iD);
+        Task<string> MakeGetAllPlaylistRequestAsync();
+        Task<string> MakeDeletePlaylistRequestAsync(string iD);
     }
 }

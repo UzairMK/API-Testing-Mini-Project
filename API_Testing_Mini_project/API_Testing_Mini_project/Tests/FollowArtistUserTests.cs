@@ -51,31 +51,4 @@ namespace API_Testing_Mini_project
             Assert.That(_service.JsonResponse["error"]["message"].ToString(), Is.EqualTo("Invalid id: InvalidId"));
         }
     }
-
-    public class WhenFollowArtistUserServiceIsCalled_WithNoId
-    {
-        private PutFollowService _service;
-
-        [OneTimeSetUp]
-        public async Task OneTimeSetUp()
-        {
-            _service = new PutFollowService();
-            await _service.MakeRequest("artist", "");
-        }
-
-        [Category("Sad path")]
-        [Test]
-        public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe200()
-        {
-            Assert.That(_service.JsonResponse["error"]["status"].ToString(), Is.EqualTo("400"));
-            Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
-        }
-
-        [Category("Sad path")]
-        [Test]
-        public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenAnErrorMessageShouldBeReceived()
-        {
-            Assert.That(_service.JsonResponse["error"]["message"].ToString(), Is.EqualTo("No ids given"));
-        }
-    }
 }

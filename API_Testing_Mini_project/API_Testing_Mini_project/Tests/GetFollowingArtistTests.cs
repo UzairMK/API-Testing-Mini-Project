@@ -88,4 +88,30 @@ namespace API_Testing_Mini_project
             Assert.That(_service.JsonResponse["name"].ToString(), Is.EqualTo("Kanye West"));
         }
     }
+
+    public class WhenGetGetPlayistServiceIsCalled_WithNoId
+    {
+        private GetPlaylistService _service;
+
+        [OneTimeSetUp]
+        public async Task OneTimeSetUp()
+        {
+            _service = new GetPlaylistService();
+            await _service.MakeRequest("");
+        }
+
+        [Category("Sad path")]
+        [Test]
+        public void GivenGetPlaylistRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe200()
+        {
+            Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
+        }
+
+        [Category("Sad path")]
+        [Test]
+        public void GivenGetPlaylistRequestMade_WhenResponseReceived_ThenAnErrorMessageShouldBeReceived()
+        {
+            Assert.That(_service.JsonResponse["name"].ToString(), Is.EqualTo("Kanye West"));
+        }
+    }
 }

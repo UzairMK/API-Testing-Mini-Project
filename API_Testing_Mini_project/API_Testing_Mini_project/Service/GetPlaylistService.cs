@@ -7,32 +7,29 @@ using System.Threading.Tasks;
 
 namespace API_Testing_Mini_project
 {
-    class DeleteFollowService
+    class GetPlaylistService
     {
         public ICallManager CallManager { get; set; }
         public JObject JsonResponse { get; set; }
-
-        public string Type { get; set; }
         public string IdSelected { get; set; }
-        //public DTO<> NameOfDTO { get; set; }
+        public DTO<Playlist> GetPlaylistDTO { get; set; }
         public string Response { get; set; }
 
-        public DeleteFollowService()
+        public GetPlaylistService()
         {
             CallManager = new CallManager();
-            //NameOfDTO = new DTO<>();
+            GetPlaylistDTO = new DTO<Playlist>();
         }
 
-        public async Task MakeRequest(string type, string iD)
+        public async Task MakeRequest(string Id)
         {
-            Type = type;
-            IdSelected = iD;
+            IdSelected = Id;
 
-            Response = await CallManager.MakePutFollowRequestAsync(type, iD);
+            Response = await CallManager.MakeGetArtistUserRequestAsync(Id);
 
             JsonResponse = JObject.Parse(Response);
 
-            //NameOfDTO.DeserealizeResponse(Response);
+            GetPlaylistDTO.DeserealizeResponse(Response);
         }
     }
 }

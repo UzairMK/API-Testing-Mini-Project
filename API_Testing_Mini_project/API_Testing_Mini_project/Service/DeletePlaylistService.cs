@@ -5,29 +5,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API_Testing_Mini_project
+namespace API_Testing_Mini_project.Service
 {
-    class PutFollowService
+    class DeletePlaylistService
     {
             public ICallManager CallManager { get; set; }
             public JObject JsonResponse { get; set; }
-
-            public string Type { get; set; }
-            public string Id { get; set; }
-
+            public string IdSelected { get; set; }
             public string Response { get; set; }
 
-            public PutFollowService()
+            public DeletePlaylistService()
             {
                 CallManager = new CallManager();
             }
 
-            public async Task MakeRequest(string iD, string type)
+            public async Task MakeRequest(string Id)
             {
-                Id = iD;
-                Type = type;
+                IdSelected = Id;
 
-                Response = await CallManager.MakePutFollowRequestAsync(type,iD);
+                Response = await CallManager.MakeGetArtistUserRequestAsync(Id);
 
                 JsonResponse = JObject.Parse(Response);
             }

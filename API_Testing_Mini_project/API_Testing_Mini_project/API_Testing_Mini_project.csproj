@@ -60,12 +60,17 @@
     <Compile Include="Service\DataHandling\IResponse.cs" />
     <Compile Include="Service\DataHandling\Model.cs" />
     <Compile Include="Service\DeleteFollowService.cs" />
+    <Compile Include="Service\DeletePlaylistService.cs" />
     <Compile Include="Service\GetAlbumsService.cs" />
+    <Compile Include="Service\GetAllPlaylistsService.cs" />
     <Compile Include="Service\GetArtistUserService.cs" />
     <Compile Include="Service\GetFollowingArtistService.cs" />
+    <Compile Include="Service\GetPlaylistService.cs" />
     <Compile Include="Service\HTTPManager\CallManager.cs" />
     <Compile Include="Service\HTTPManager\ICallManager.cs" />
+    <Compile Include="Service\PostCreatePlaylistService.cs" />
     <Compile Include="Service\PutFollowService.cs" />
+    <Compile Include="Tests\GetPlaylistTest.cs" />
     <Compile Include="Tests\UnfollowArtistUserTests.cs" />
     <Compile Include="Tests\FollowArtistUserTests.cs" />
     <Compile Include="Tests\GetFollowingArtistTests.cs" />

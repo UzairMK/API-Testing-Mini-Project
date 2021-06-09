@@ -61,7 +61,6 @@ namespace API_Testing_Mini_project
 
         public async Task<string> MakePutFollowRequestAsync(string type, string iD)
         {
-
             var request = new RestRequest(Method.PUT)
             {
                 Resource = $"v1/me/following?type={type}&ids={iD}"
@@ -71,10 +70,60 @@ namespace API_Testing_Mini_project
         }
         public async Task<string> MakeDeleteFollowRequestAsync(string type, string iD)
         {
-
             var request = new RestRequest(Method.DELETE)
             {
                 Resource = $"v1/me/following?type={type}&ids={iD}"
+            };
+
+            return await ExecuteRequestAsync(request);
+        }
+       
+
+
+        public async Task<string> MakePostCreatePlaylistRequestAsync(string iD)
+        {
+            var request = new RestRequest(Method.POST)
+            {
+                Resource = $"v1/users/ghastlykid/playlists"
+            };
+
+            JObject body = new JObject
+            {
+                new JProperty("name", "MIB"),
+                new JProperty("description", "Test"),
+                new JProperty("public", "false")
+            };
+
+            request.AddJsonBody(body);
+
+            return await ExecuteRequestAsync(request);
+        }
+
+        public async Task<string> MakeGetSinglePlaylistRequestAsync(string iD)
+        {
+            var request = new RestRequest(Method.GET)
+            {
+                Resource = $"v1/playlists/{iD}?fields=name%2Cdescription%2Ctracks"
+            };
+
+            return await ExecuteRequestAsync(request);
+        }
+
+        public async Task<string> MakeGetAllPlaylistRequestAsync()
+        {
+            var request = new RestRequest(Method.GET)
+            {
+                Resource = $"v1/me/playlists"
+            };
+
+            return await ExecuteRequestAsync(request);
+        }
+
+        public async Task<string> MakeDeletePlaylistRequestAsync(string iD)
+        {
+            var request = new RestRequest(Method.DELETE)
+            {
+                Resource = $"v1/playlists/{iD}/followers"
             };
 
             return await ExecuteRequestAsync(request);
