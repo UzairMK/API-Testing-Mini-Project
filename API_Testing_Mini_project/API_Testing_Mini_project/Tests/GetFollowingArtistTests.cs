@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace API_Testing_Mini_project
 {
-    public class WhenGetArtistUserServiceIsCalled_WithAValidId
+    public class WhenGetFollowingArtistServiceIsCalled_WithAValidId
     {
         private GetArtistUserService _service;
 
@@ -32,7 +32,7 @@ namespace API_Testing_Mini_project
         }
     }
 
-    public class WhenGetArtistUserServiceIsCalled_WithAnInvalidId
+    public class WhenGetFollowingArtistServiceIsCalled_WithAnInvalidId
     {
         private GetArtistUserService _service;
 
@@ -60,7 +60,7 @@ namespace API_Testing_Mini_project
         }
     }
 
-    public class WhenGetArtistUserServiceIsCalled_WithNoId
+    public class WhenGetFollowingArtistServiceIsCalled_WithNoId
     {
         private GetArtistUserService _service;
 

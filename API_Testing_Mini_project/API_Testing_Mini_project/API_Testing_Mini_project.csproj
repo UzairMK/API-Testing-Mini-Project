@@ -62,6 +62,9 @@
     <Compile Include="Service\GetArtistUserService.cs" />
     <Compile Include="Service\HTTPManager\CallManager.cs" />
     <Compile Include="Service\HTTPManager\ICallManager.cs" />
+    <Compile Include="Tests\UnfollowArtistUserTests.cs" />
+    <Compile Include="Tests\FollowArtistUserTests.cs" />
+    <Compile Include="Tests\GetFollowingArtistTests.cs" />
     <Compile Include="Tests\GetArtistUserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
