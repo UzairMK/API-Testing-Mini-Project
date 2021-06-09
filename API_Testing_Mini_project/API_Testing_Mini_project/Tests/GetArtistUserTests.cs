@@ -17,7 +17,7 @@ namespace API_Testing_Mini_project
 
         [Category("Happy path")]
         [Test]
-        public void GivenGetArtistUserRequestMade_WhenResponseRecieved_ThenResponseStatusShouldBe200()
+        public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe200()
         {
             Assert.That(_service.JsonResponse["status"].ToString(), Is.EqualTo("200"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("OK"));
