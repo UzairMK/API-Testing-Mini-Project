@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace API_Testing_Mini_project
 {
 
-    public class GetArtistUserModel
+    public class GetArtistUserModel : IResponse
     {
         public External_Urls external_urls { get; set; }
         public Followers followers { get; set; }
