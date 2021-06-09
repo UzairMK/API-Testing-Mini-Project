@@ -12,26 +12,23 @@ namespace API_Testing_Mini_project
         public ICallManager CallManager { get; set; }
         public JObject JsonResponse { get; set; }
 
-        public string Artist { get; set; }
-        //public string IdSelected { get; set; }
-        //public DTO<> NameOfDTO { get; set; }
+        public string IdSelected { get; set; }
+        public DTO<GetFollowingArtistModel> FollowingArtistsDTO { get; set; }
         public string Response { get; set; }
 
         public GetFollowingArtistService()
         {
             CallManager = new CallManager();
-            //NameOfDTO = new DTO<>();
+            FollowingArtistsDTO = new DTO<GetFollowingArtistModel>();
         }
 
-        public async Task MakeRequest(string artist)
+        public async Task MakeRequest()
         {
-            Artist = artist;
-
-            Response = await CallManager.MakeGetFollowingArtistRequestAsync(artist);
+            Response = await CallManager.MakeGetFollowingArtistRequestAsync();
 
             JsonResponse = JObject.Parse(Response);
 
-            //NameOfDTO.DeserealizeResponse(Response);
+            FollowingArtistsDTO.DeserealizeResponse(Response);
         }
     }
 }

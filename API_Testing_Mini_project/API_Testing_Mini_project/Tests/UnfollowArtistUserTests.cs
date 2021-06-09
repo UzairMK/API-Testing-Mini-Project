@@ -4,15 +4,15 @@ using NUnit.Framework;
 
 namespace API_Testing_Mini_project
 {
-    public class WhenGetArtistUserServiceIsCalled_WithAValidId
+    public class WhenUnfollowArtistUserServiceIsCalled_WithAValidId
     {
-        private GetArtistUserService _service;
+        private DeleteFollowService _service;
 
         [OneTimeSetUp]
         public async Task OneTimeSetUp()
         {
-            _service = new GetArtistUserService();
-            await _service.MakeRequest("5K4W6rqBFWDnAN6FQUkS6x");
+            _service = new DeleteFollowService();
+            await _service.MakeRequest("artist", "");
         }
 
         [Category("Happy path")]
@@ -32,22 +32,22 @@ namespace API_Testing_Mini_project
         }
     }
 
-    public class WhenGetArtistUserServiceIsCalled_WithAnInvalidId
+    public class WhenUnfollowArtistUserServiceIsCalled_WithAnInvalidId
     {
-        private GetArtistUserService _service;
+        private DeleteFollowService _service;
 
         [OneTimeSetUp]
         public async Task OneTimeSetUp()
         {
-            _service = new GetArtistUserService();
-            await _service.MakeRequest("InvalidId");
+            _service = new DeleteFollowService();
+            await _service.MakeRequest("artist", "InvalidId");
         }
 
         [Category("Sad path")]
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe400()
         {
-            Assert.That(_service.JsonResponse["error"]["status"].ToString(), Is.EqualTo("400"));
+            //Assert.That(_service.JsonResponse["status"].ToString(), Is.EqualTo("200"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
         }
 
@@ -55,26 +55,26 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenAnErrorMessageShouldBeReceived()
         {
-            Assert.That(_service.JsonResponse["error"]["message"].ToString(), Is.EqualTo("invalid id"));
+            Assert.That(_service.JsonResponse["error"]["message"].ToString(), Is.EqualTo("Kanye West"));
         }
     }
 
-    public class WhenGetArtistUserServiceIsCalled_WithNoId
+    public class WhenUnfollowArtistUserServiceIsCalled_WithNoId
     {
-        private GetArtistUserService _service;
+        private DeleteFollowService _service;
 
         [OneTimeSetUp]
         public async Task OneTimeSetUp()
         {
-            _service = new GetArtistUserService();
-            await _service.MakeRequest("");
+            _service = new DeleteFollowService();
+            await _service.MakeRequest("artist", "");
         }
 
         [Category("Sad path")]
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe200()
         {
-            Assert.That(_service.JsonResponse["error"]["status"].ToString(), Is.EqualTo("400"));
+            //Assert.That(_service.JsonResponse["status"].ToString(), Is.EqualTo("200"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
         }
 
@@ -82,7 +82,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenAnErrorMessageShouldBeReceived()
         {
-            Assert.That(_service.JsonResponse["error"]["message"].ToString(), Is.EqualTo("invalid id"));
+            Assert.That(_service.JsonResponse["error"]["message"].ToString(), Is.EqualTo("Kanye West"));
         }
     }
 }

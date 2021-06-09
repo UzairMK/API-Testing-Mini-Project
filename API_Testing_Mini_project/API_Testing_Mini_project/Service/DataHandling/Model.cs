@@ -40,13 +40,13 @@ namespace API_Testing_Mini_project
         public int width { get; set; }
     }
 
-    public class GetFollowingArtistModel : IResponse
+    public class GetAblumsModel : IResponse
     {
 
     }
 
 
-    public class GetAlbumsModel : IResponse
+    public class GetFollowingArtistModel : IResponse
     {
         public Artists artists { get; set; }
     }
