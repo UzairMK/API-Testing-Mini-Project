@@ -59,22 +59,22 @@ namespace API_Testing_Mini_project
             return await ExecuteRequestAsync(request);
         }
 
-        public async Task<string> MakePutFollowRequestAsync(string artist)
+        public async Task<string> MakePutFollowRequestAsync(string type, string iD)
         {
 
             var request = new RestRequest(Method.PUT)
             {
-                Resource = $"v1/me/following?type={artist}"
+                Resource = $"v1/me/following?type={type}&ids={iD}"
             };
 
             return await ExecuteRequestAsync(request);
         }
-        public async Task<string> MakeDeleteFollowRequestAsync(string artist)
+        public async Task<string> MakeDeleteFollowRequestAsync(string type, string iD)
         {
 
             var request = new RestRequest(Method.DELETE)
             {
-                Resource = $"v1/me/following?type=artist&ids=2CIMQHirSU0MQqyYHq0eOx"
+                Resource = $"v1/me/following?type={type}&ids={iD}"
             };
 
             return await ExecuteRequestAsync(request);
