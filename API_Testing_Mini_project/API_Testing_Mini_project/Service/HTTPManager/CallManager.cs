@@ -18,6 +18,7 @@ namespace API_Testing_Mini_project
         public async Task<string> ExecuteRequestAsync(RestRequest request)
         {
             request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Authorization", AppConfigReader.AuthKey);
 
             var response = await _client.ExecuteAsync(request);
 
@@ -42,6 +43,38 @@ namespace API_Testing_Mini_project
             var request = new RestRequest(Method.GET)
             {
                 Resource = $"v1/search?q={name}&type={type}"
+            };
+
+            return await ExecuteRequestAsync(request);
+        }
+
+        public async Task<string> MakeGetFollowingArtistRequestAsync(string artist)
+        {
+
+            var request = new RestRequest(Method.GET)
+            {
+                Resource = $"v1/me/following?type={artist}"
+            };
+
+            return await ExecuteRequestAsync(request);
+        }
+
+        public async Task<string> MakePutFollowRequestAsync(string artist)
+        {
+
+            var request = new RestRequest(Method.PUT)
+            {
+                Resource = $"v1/me/following?type={artist}"
+            };
+
+            return await ExecuteRequestAsync(request);
+        }
+        public async Task<string> MakeDeleteFollowRequestAsync(string artist)
+        {
+
+            var request = new RestRequest(Method.DELETE)
+            {
+                Resource = $"v1/me/following?type=artist&ids=2CIMQHirSU0MQqyYHq0eOx"
             };
 
             return await ExecuteRequestAsync(request);
