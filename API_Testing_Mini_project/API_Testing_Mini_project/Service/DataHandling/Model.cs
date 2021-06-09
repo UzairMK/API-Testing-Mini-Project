@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace API_Testing_Mini_project
 {
 
-    public class GetArtistUserModel
+    public class GetArtistUserModel : IResponse
     {
         public External_Urls external_urls { get; set; }
         public Followers followers { get; set; }
@@ -38,6 +38,46 @@ namespace API_Testing_Mini_project
         public int height { get; set; }
         public string url { get; set; }
         public int width { get; set; }
+    }
+
+    public class GetFollowingArtistModel : IResponse
+    {
+
+    }
+
+
+    public class GetAlbumsModel : IResponse
+    {
+        public Artists artists { get; set; }
+    }
+
+    public class Artists
+    {
+        public Item[] items { get; set; }
+        public object next { get; set; }
+        public int total { get; set; }
+        public Cursors cursors { get; set; }
+        public int limit { get; set; }
+        public string href { get; set; }
+    }
+
+    public class Cursors
+    {
+        public object after { get; set; }
+    }
+
+    public class Item
+    {
+        public External_Urls external_urls { get; set; }
+        public Followers followers { get; set; }
+        public string[] genres { get; set; }
+        public string href { get; set; }
+        public string id { get; set; }
+        public Image[] images { get; set; }
+        public string name { get; set; }
+        public int popularity { get; set; }
+        public string type { get; set; }
+        public string uri { get; set; }
     }
 
 }
