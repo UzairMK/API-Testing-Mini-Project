@@ -48,12 +48,12 @@ namespace API_Testing_Mini_project
             return await ExecuteRequestAsync(request);
         }
 
-        public async Task<string> MakeGetFollowingArtistRequestAsync(string artist)
+        public async Task<string> MakeGetFollowingArtistRequestAsync()
         {
 
             var request = new RestRequest(Method.GET)
             {
-                Resource = $"v1/me/following?type={artist}"
+                Resource = $"v1/me/following?type=artist"
             };
 
             return await ExecuteRequestAsync(request);
@@ -79,7 +79,5 @@ namespace API_Testing_Mini_project
 
             return await ExecuteRequestAsync(request);
         }
-
-
     }
 }

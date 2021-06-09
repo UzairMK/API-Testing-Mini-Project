@@ -2,7 +2,7 @@
 
 ## Project Aims
 
-The aim of this project is to choose an API and test it using RestSharp in Visual Studio as a team of three. The testing framework should be designed well and easily extendible. The API we have chosen is ___. This API 
+The aim of this project is to choose an API and test it using RestSharp in Visual Studio as a team of three. The testing framework should be designed well and easily extendible. The API we have chosen is the Spotify API. 
 
 
 
@@ -30,7 +30,17 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 ## Class Diagrams
 
+
+
+
+
 ## Epics
+
+1. As a developer, I want models in JSON format, so I can map my JSON responses onto them for storing data.
+2. As a tester, I want a service class for all the requests to be tested, so I can test the requests' happy and sad paths.
+3. As a user, I want use Spotify's API to make changes to my account, so I can make those changes without going onto Spotify's website.
+
+
 
 ## Sprints
 
@@ -38,27 +48,37 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 #### Kanban Board at the beginning
 
-
+![BeforeSprint1](Images/BeforeSprint1.png)
 
 #### Sprint Goals
 
+​	The API we have selected to test is the Spotify API. The goal of the first sprint is to select which requests we would like to test because because there are a lot of requests to choose from. While selecting the requests we will also you use Postman to make sure we know how the request works. After confirming the requests we are going to test we will build up the project's backlog and move whatever we aim to finish in this sprint to the sprint backlog.
 
+​	In terms of blockers, we have two. The first one is the team lacks experience using GitHub collaboratively so this will slow down the pace of work and the second one is that one of the group members does not use Spotify and therefore is not aware of how the application is used.
 
 #### Sprint 1: Definition of done
 
-
+- [x] Select the requests we are going to test.
+- [x] Check we know how the requests work using Postman.
+- [x] Create user stories for the project backlog.
+- [x] Move user stories to be completed in this sprint into the sprint backlog.
+- [ ] Complete the user stories assigned to this sprint.
+- [x] Commit changes and merge to dev branch.
+- [x] Update documentation.
 
 #### Kanban Board at the end
 
-
+![AfterSprint1](Images/AfterSprint1.png)
 
 #### Sprint Review
 
+​	Unfortunately we were unable to finish all the user stories assigned to this sprint and this is because we could not come up with a way to test the happy path of follow and unfollow artist/user requests. The reason for this is that when these requests are successful they return no content which is throwing an error in the code. We aim to fix this in the next sprint.
 
+​	It is a good thing we took our blockers into consideration and did not overload ourselves with too much work. We manage to complete 9 out of 11 of the assigned user stories which is not bad. One of the reasons why we didn't manage to finish all the user stories is because the access token we were getting from Spotify kept expiring, slowing down our workflow.
 
 #### Sprint Retrospective
 
-
+​	The biggest lesson we learnt today is not to make frequent pull requests to the dev branch because this is time consuming and most the pull requests are not necessary. Also when the group is collating their work, small errors should be fixed on one machine instead of having the person responsible for that file fixing the problem on their machine and making another pull request because, again, this is time consuming with no benefit.
 
 ### Sprint 2
 

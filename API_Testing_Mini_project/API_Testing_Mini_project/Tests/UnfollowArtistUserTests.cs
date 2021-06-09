@@ -6,13 +6,13 @@ namespace API_Testing_Mini_project
 {
     public class WhenUnfollowArtistUserServiceIsCalled_WithAValidId
     {
-        private GetArtistUserService _service;
+        private DeleteFollowService _service;
 
         [OneTimeSetUp]
         public async Task OneTimeSetUp()
         {
-            _service = new GetArtistUserService();
-            await _service.MakeRequest("5K4W6rqBFWDnAN6FQUkS6x");
+            _service = new DeleteFollowService();
+            await _service.MakeRequest("artist", "");
         }
 
         [Category("Happy path")]
@@ -34,13 +34,13 @@ namespace API_Testing_Mini_project
 
     public class WhenUnfollowArtistUserServiceIsCalled_WithAnInvalidId
     {
-        private GetArtistUserService _service;
+        private DeleteFollowService _service;
 
         [OneTimeSetUp]
         public async Task OneTimeSetUp()
         {
-            _service = new GetArtistUserService();
-            await _service.MakeRequest("InvalidId");
+            _service = new DeleteFollowService();
+            await _service.MakeRequest("artist", "InvalidId");
         }
 
         [Category("Sad path")]
@@ -49,26 +49,25 @@ namespace API_Testing_Mini_project
         {
             //Assert.That(_service.JsonResponse["status"].ToString(), Is.EqualTo("200"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
-            //Assert.That(_service.GetArtistUserDTO.Response., Is.EqualTo(200));
         }
 
         [Category("Sad path")]
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenAnErrorMessageShouldBeReceived()
         {
-            Assert.That(_service.JsonResponse["name"].ToString(), Is.EqualTo("Kanye West"));
+            Assert.That(_service.JsonResponse["error"]["message"].ToString(), Is.EqualTo("Kanye West"));
         }
     }
 
     public class WhenUnfollowArtistUserServiceIsCalled_WithNoId
     {
-        private GetArtistUserService _service;
+        private DeleteFollowService _service;
 
         [OneTimeSetUp]
         public async Task OneTimeSetUp()
         {
-            _service = new GetArtistUserService();
-            await _service.MakeRequest("");
+            _service = new DeleteFollowService();
+            await _service.MakeRequest("artist", "");
         }
 
         [Category("Sad path")]
@@ -77,14 +76,13 @@ namespace API_Testing_Mini_project
         {
             //Assert.That(_service.JsonResponse["status"].ToString(), Is.EqualTo("200"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
-            //Assert.That(_service.GetArtistUserDTO.Response., Is.EqualTo(200));
         }
 
         [Category("Sad path")]
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenAnErrorMessageShouldBeReceived()
         {
-            Assert.That(_service.JsonResponse["name"].ToString(), Is.EqualTo("Kanye West"));
+            Assert.That(_service.JsonResponse["error"]["message"].ToString(), Is.EqualTo("Kanye West"));
         }
     }
 }

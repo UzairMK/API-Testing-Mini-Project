@@ -47,16 +47,15 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe400()
         {
-            //Assert.That(_service.JsonResponse["status"].ToString(), Is.EqualTo("200"));
+            Assert.That(_service.JsonResponse["error"]["status"].ToString(), Is.EqualTo("400"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
-            //Assert.That(_service.GetArtistUserDTO.Response., Is.EqualTo(200));
         }
 
         [Category("Sad path")]
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenAnErrorMessageShouldBeReceived()
         {
-            Assert.That(_service.JsonResponse["name"].ToString(), Is.EqualTo("Kanye West"));
+            Assert.That(_service.JsonResponse["error"]["message"].ToString(), Is.EqualTo("invalid id"));
         }
     }
 
@@ -75,16 +74,15 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe200()
         {
-            //Assert.That(_service.JsonResponse["status"].ToString(), Is.EqualTo("200"));
+            Assert.That(_service.JsonResponse["error"]["status"].ToString(), Is.EqualTo("400"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
-            //Assert.That(_service.GetArtistUserDTO.Response., Is.EqualTo(200));
         }
 
         [Category("Sad path")]
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenAnErrorMessageShouldBeReceived()
         {
-            Assert.That(_service.JsonResponse["name"].ToString(), Is.EqualTo("Kanye West"));
+            Assert.That(_service.JsonResponse["error"]["message"].ToString(), Is.EqualTo("invalid id"));
         }
     }
 }

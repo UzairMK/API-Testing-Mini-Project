@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using NUnit.Framework;
 
@@ -6,13 +7,13 @@ namespace API_Testing_Mini_project
 {
     public class WhenGetFollowingArtistServiceIsCalled_WithAValidId
     {
-        private GetArtistUserService _service;
+        private GetFollowingArtistService _service;
 
         [OneTimeSetUp]
         public async Task OneTimeSetUp()
         {
-            _service = new GetArtistUserService();
-            await _service.MakeRequest("5K4W6rqBFWDnAN6FQUkS6x");
+            _service = new GetFollowingArtistService();
+            await _service.MakeRequest();
         }
 
         [Category("Happy path")]
@@ -28,7 +29,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenResponseNameShouldBeKanyeWest()
         {
-            Assert.That(_service.JsonResponse["name"].ToString(), Is.EqualTo("Kanye West"));
+            Assert.That(_service.FollowingArtistsDTO.Response.artists.items[0].name, Is.EqualTo("B POLYMATH"));
         }
     }
 
