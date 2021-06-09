@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace API_Testing_Mini_project
 {
-    public class NameOfTestSuite
+    public class WhenGetArtistUserServiceIsCalled_WithAValidId
     {
         private GetArtistUserService _service;
 
@@ -22,6 +22,13 @@ namespace API_Testing_Mini_project
             Assert.That(_service.JsonResponse["status"].ToString(), Is.EqualTo("200"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("OK"));
             //Assert.That(_service.NameOfDTO.Response.status, Is.EqualTo(200));
+        }
+
+        [Category("Happy path")]
+        [Test]
+        public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenResponseNameShouldBe()
+        {
+            Assert.That(_service.JsonResponse["status"].ToString(), Is.EqualTo("200"));
         }
     }
 }
