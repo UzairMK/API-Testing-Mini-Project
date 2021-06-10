@@ -74,7 +74,10 @@
     <Compile Include="Service\HTTPManager\ICallManager.cs" />
     <Compile Include="Service\PostCreatePlaylistService.cs" />
     <Compile Include="Service\PutFollowService.cs" />
+    <Compile Include="Tests\DeletePlaylistTests.cs" />
     <Compile Include="Tests\GetAlbumsTests.cs" />
+    <Compile Include="Tests\GetAllPlaylistTests.cs" />
+    <Compile Include="Tests\GetPlaylistTest.cs" />
     <Compile Include="Tests\UnfollowArtistUserTests.cs" />
     <Compile Include="Tests\FollowArtistUserTests.cs" />
     <Compile Include="Tests\GetFollowingArtistTests.cs" />
@@ -84,6 +87,7 @@
   <ItemGroup>
     <None Include="AppConfig\app.config" />
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
