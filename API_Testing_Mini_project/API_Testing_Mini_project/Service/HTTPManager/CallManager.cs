@@ -8,7 +8,7 @@ namespace API_Testing_Mini_project
     {
         private readonly IRestClient _client;
 
-        public string StatusCode { get; set; }
+        public int StatusCode { get; set; }
         public string StatusDescription { get; set; }
 
         public CallManager()
@@ -23,8 +23,8 @@ namespace API_Testing_Mini_project
 
             var response = await _client.ExecuteAsync(request);
 
-            StatusCode = response.StatusCode.ToString();
-            StatusDescription = response.StatusDescription.ToString();
+            StatusCode = (int)response.StatusCode;
+            StatusDescription = response.StatusDescription;
 
             return response.Content;
         }

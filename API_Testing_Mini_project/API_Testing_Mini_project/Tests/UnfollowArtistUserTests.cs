@@ -19,7 +19,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenUnfollowArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe204()
         {
-            //Assert.That(_service.CallManager.StatusCode, Is.EqualTo("204"));
+            Assert.That(_service.CallManager.StatusCode, Is.EqualTo(204));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("No Content"));
         }
     }
@@ -39,7 +39,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenUnfollowArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe400()
         {
-            //Assert.That(_service.CallManager.StatusCode, Is.EqualTo("400"));
+            Assert.That(_service.JsonResponse["error"]["status"].ToString(), Is.EqualTo("400"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
         }
 
@@ -66,7 +66,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenUnfollowArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe400()
         {
-            //Assert.That(_service.CallManager.StatusCode, Is.EqualTo("400"));
+            Assert.That(_service.JsonResponse["error"]["status"].ToString(), Is.EqualTo("400"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
         }
 
@@ -93,7 +93,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenUnfollowArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe400()
         {
-            //Assert.That(_service.CallManager.StatusCode, Is.EqualTo("400"));
+            Assert.That(_service.JsonResponse["error"]["status"].ToString(), Is.EqualTo("400"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
         }
 
@@ -120,7 +120,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenUnfollowArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe400()
         {
-            //Assert.That(_service.CallManager.StatusCode, Is.EqualTo("400"));
+            Assert.That(_service.JsonResponse["error"]["status"].ToString(), Is.EqualTo("400"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
         }
 
@@ -148,7 +148,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenUnfollowArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe204()
         {
-            //Assert.That(_service.CallManager.StatusCode, Is.EqualTo("204"));
+            Assert.That(_service.CallManager.StatusCode, Is.EqualTo(204));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("No Content"));
         }
     }

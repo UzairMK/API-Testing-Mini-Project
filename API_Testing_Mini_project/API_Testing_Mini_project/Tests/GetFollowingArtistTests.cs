@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace API_Testing_Mini_project
@@ -18,7 +19,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenGetFollowingArtistRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe200()
         {
-            //Assert.That(_service.CallManager.StatusCode, Is.EqualTo("200"));
+            Assert.That(_service.CallManager.StatusCode, Is.EqualTo(200));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("OK"));
         }
 
@@ -26,7 +27,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenGetFollowingArtistRequestMade_WhenResponseReceived_ThenResponseShouldContainBPOLYMATH()
         {
-            Assert.That(_service.FollowingArtistsDTO.Response.artists.items[0].name, Is.EqualTo("B POLYMATH"));
+            Assert.That(_service.FollowingArtistsDTO.Response.artists.items.Where(x => x.name == "B POLYMATH").FirstOrDefault(), Is.Not.Null);
         }
     }
 }

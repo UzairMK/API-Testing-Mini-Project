@@ -19,7 +19,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenFollowArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe204()
         {
-            //Assert.That(_service.CallManager.StatusCode, Is.EqualTo("204"));
+            Assert.That(_service.CallManager.StatusCode, Is.EqualTo(204));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("No Content"));
         }
     }
@@ -148,7 +148,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenFollowArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe204()
         {
-            //Assert.That(_service.CallManager.StatusCode, Is.EqualTo("204"));
+            Assert.That(_service.CallManager.StatusCode, Is.EqualTo(204));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("No Content"));
         }
     }

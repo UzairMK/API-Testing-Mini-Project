@@ -18,7 +18,7 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe200()
         {
-            //Assert.That(_service.CallManager.StatusCode, Is.EqualTo("200"));
+            Assert.That(_service.CallManager.StatusCode, Is.EqualTo(200));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("OK"));
         }
 

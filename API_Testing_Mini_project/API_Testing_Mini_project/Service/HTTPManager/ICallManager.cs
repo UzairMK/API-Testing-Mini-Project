@@ -5,7 +5,7 @@ namespace API_Testing_Mini_project
 {
     public interface ICallManager
     {
-        string StatusCode { get; set; }
+        int StatusCode { get; set; }
         string StatusDescription { get; set; }
         Task<string> MakeGetArtistUserRequestAsync(string Id);
         Task<string> MakeGetFollowingArtistRequestAsync();

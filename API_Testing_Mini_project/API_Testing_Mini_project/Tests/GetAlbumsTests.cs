@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace API_Testing_Mini_project
@@ -18,15 +19,15 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenGetAlbumsRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe200()
         {
-            //Assert.That(_service.CallManager.StatusCode, Is.EqualTo("200"));
+            Assert.That(_service.CallManager.StatusCode, Is.EqualTo(200));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("OK"));
         }
 
         [Category("Happy path")]
         [Test]
-        public void GivenGetAlbumsRequestMade_WhenResponseReceived_ThenResponseShouldNameDrake()
+        public void GivenGetAlbumsRequestMade_WhenResponseReceived_ThenResponseShouldContainDrake()
         {
-            Assert.That(_service.GetAlbumsDTO.Response.artists.items[0].name, Is.EqualTo("Drake"));
+            Assert.That(_service.GetAlbumsDTO.Response.artists.items.Where(x => x.name == "Drake").FirstOrDefault(), Is.Not.Null);
         }
     }
 
@@ -70,7 +71,7 @@ namespace API_Testing_Mini_project
 
         [Category("Sad path")]
         [Test]
-        public void GivenGetAlbumsRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe200()
+        public void GivenGetAlbumsRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe400()
         {
             Assert.That(_service.JsonResponse["error"]["status"].ToString(), Is.EqualTo("400"));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Bad Request"));
@@ -78,7 +79,7 @@ namespace API_Testing_Mini_project
 
         [Category("Sad path")]
         [Test]
-        public void GivenGetAlbumsRequestMade_WhenResponseReceived_ThenResponseArtistItemsShouldBeEmpty()
+        public void GivenGetAlbumsRequestMade_WhenResponseReceived_ThenResponseShouldContainErrorMessage()
         {
             Assert.That(_service.JsonResponse["error"]["message"].ToString(), Is.EqualTo("No search query"));
         }
