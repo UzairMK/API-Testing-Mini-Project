@@ -60,13 +60,24 @@
     <Compile Include="Service\DataHandling\IResponse.cs" />
     <Compile Include="Service\DataHandling\Model.cs" />
     <Compile Include="Service\DeleteFollowService.cs" />
+    <Compile Include="Service\DeletePlaylistService.cs" />
     <Compile Include="Service\GetAlbumsService.cs" />
+    <Compile Include="Service\GetAllPlaylistsService.cs" />
     <Compile Include="Service\GetArtistUserService.cs" />
     <Compile Include="Service\GetFollowingArtistService.cs" />
-    <Compile Include="Service\HTTPManager\CallManager.cs" />
+    <Compile Include="Service\GetPlaylistService.cs" />
+    <Compile Include="Service\HTTPManager\ExecuteRequest.cs" />
+    <Compile Include="Service\HTTPManager\PostManager.cs" />
+    <Compile Include="Service\HTTPManager\PutManager.cs" />
+    <Compile Include="Service\HTTPManager\DeleteManager.cs" />
+    <Compile Include="Service\HTTPManager\GetManager.cs" />
     <Compile Include="Service\HTTPManager\ICallManager.cs" />
+    <Compile Include="Service\PostCreatePlaylistService.cs" />
     <Compile Include="Service\PutFollowService.cs" />
+    <Compile Include="Tests\DeletePlaylistTests.cs" />
     <Compile Include="Tests\GetAlbumsTests.cs" />
+    <Compile Include="Tests\GetAllPlaylistTests.cs" />
+    <Compile Include="Tests\GetPlaylistTest.cs" />
     <Compile Include="Tests\UnfollowArtistUserTests.cs" />
     <Compile Include="Tests\FollowArtistUserTests.cs" />
     <Compile Include="Tests\GetFollowingArtistTests.cs" />
@@ -75,6 +86,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AppConfig\app.config" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>

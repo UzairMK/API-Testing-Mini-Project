@@ -1,32 +1,27 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace API_Testing_Mini_project
 {
-    class DeleteFollowService
+    class GetAllPlaylistsService
     {
         public ICallManager CallManager { get; set; }
         public JObject JsonResponse { get; set; }
-        public string Type { get; set; }
-        public string Id { get; set; }
+
+        public DTO<AllPlaylistModel> GetAllPlaylistDTO { get; set; }
         public string Response { get; set; }
 
-        public DeleteFollowService()
+        public GetAllPlaylistsService()
         {
-            CallManager = new DeleteManager();
+            CallManager = new GetManager();
+            GetAllPlaylistDTO = new DTO<AllPlaylistModel>();
         }
 
-        public void MakeRequest(string type, string iD)
+        public void MakeRequest()
         {
-            Type = type;
-            Id = iD;
-            string resource = $"v1/me/following?type={type}&ids={iD}";
+            string resource = $"v1/me/playlists";
 
             Response = CallManager.MakeRequest(resource);
+
 
             try
             {
@@ -36,6 +31,9 @@ namespace API_Testing_Mini_project
             {
                 JsonResponse = new JObject();
             }
+            
+
+            GetAllPlaylistDTO.DeserealizeResponse(Response);
         }
     }
 }

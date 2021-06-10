@@ -30,7 +30,15 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 ## Class Diagrams
 
+​	Below are images of the class diagrams. There is a class diagram for the services and a class diagram for the models that the JSON responses were stored in.
 
+### Services Class Diagram
+
+![ServiceClassDiagram](Images/ServiceClassDiagram.png)
+
+### Model Class Diagrams
+
+![ModelClassDiagram](Images/ModelClassDiagram.png)
 
 
 
@@ -72,6 +80,8 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 #### Sprint Review
 
+​	The requests we have chosen to test are get artist/user, follow artist/user, unfollow artist/user, get following artists, and get albums. We understand how they work from practice with Postman. The requests we chosen to work on during this sprint are get artist/user, follow artist/user, unfollow artist/user, and get following artists. We completed the model and services for these requests and almost finished the tests.
+
 ​	Unfortunately we were unable to finish all the user stories assigned to this sprint and this is because we could not come up with a way to test the happy path of follow and unfollow artist/user requests. The reason for this is that when these requests are successful they return no content which is throwing an error in the code. We aim to fix this in the next sprint.
 
 ​	It is a good thing we took our blockers into consideration and did not overload ourselves with too much work. We manage to complete 9 out of 11 of the assigned user stories which is not bad. One of the reasons why we didn't manage to finish all the user stories is because the access token we were getting from Spotify kept expiring, slowing down our workflow.
@@ -84,19 +94,31 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 #### Kanban Board at the beginning
 
-
+![BeforeSprint2](Images/BeforeSprint2.png)
 
 #### Sprint Goals
 
+​	This is the final sprint. The goal of this sprint is to fix the error we were having with user stories 2.2 and 2.3 due to a "No Content" response. We will then implement the remaining request we are going to test which is the get albums request.
 
+​	After all the feature are in place and working, we will then refactor the code and make it easier to add more functionality in case anyone wants to continue the work we have done. Then will we create a presentation for tomorrow.
+
+​	In terms of blockers, apart from the access token expiring, one of our group members has a personal commitment he has to attend to which will mean he is unavailable to work for 2 hours.
 
 #### Sprint 2: Definition of done
 
-
+- [x] User story 1.4
+- [x] User story 2.2
+- [x] User story 2.3
+- [x] User story 2.5
+- [x] User story 3.5
+- [x] Refactor code.
+- [x] Prepare presentation.
+- [x] Commit changes and merge to main branch.
+- [x] Update documentation.
 
 #### Kanban Board at the end
 
-
+![AfterSprint2](Images/AfterSprint2.png)
 
 #### Sprint Review
 

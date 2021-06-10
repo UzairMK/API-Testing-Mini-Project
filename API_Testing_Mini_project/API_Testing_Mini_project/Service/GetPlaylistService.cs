@@ -1,41 +1,37 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace API_Testing_Mini_project
 {
-    class DeleteFollowService
+    class GetPlaylistService
     {
         public ICallManager CallManager { get; set; }
         public JObject JsonResponse { get; set; }
-        public string Type { get; set; }
-        public string Id { get; set; }
+        public string IdSelected { get; set; }
+        public DTO<PlaylistModel> GetPlaylistDTO { get; set; }
         public string Response { get; set; }
 
-        public DeleteFollowService()
+        public GetPlaylistService()
         {
-            CallManager = new DeleteManager();
+            CallManager = new GetManager();
+            GetPlaylistDTO = new DTO<PlaylistModel>();
         }
 
-        public void MakeRequest(string type, string iD)
+        public void MakeRequest(string Id)
         {
-            Type = type;
-            Id = iD;
-            string resource = $"v1/me/following?type={type}&ids={iD}";
+            IdSelected = Id;
+            string resource = $"v1/playlists/{Id}";
 
             Response = CallManager.MakeRequest(resource);
-
             try
             {
                 JsonResponse = JObject.Parse(Response);
             }
-            catch
+            catch 
             {
                 JsonResponse = new JObject();
             }
+
+            GetPlaylistDTO.DeserealizeResponse(Response);
         }
     }
 }

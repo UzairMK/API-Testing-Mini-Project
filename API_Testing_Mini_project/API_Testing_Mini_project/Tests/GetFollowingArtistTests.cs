@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace API_Testing_Mini_project
@@ -9,10 +8,10 @@ namespace API_Testing_Mini_project
         private GetFollowingArtistService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new GetFollowingArtistService();
-            await _service.MakeRequest();
+            _service.MakeRequest();
         }
 
         [Category("Happy path")]

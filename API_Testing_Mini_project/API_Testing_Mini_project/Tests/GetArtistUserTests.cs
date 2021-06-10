@@ -8,10 +8,10 @@ namespace API_Testing_Mini_project
         private GetArtistUserService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new GetArtistUserService();
-            await _service.MakeRequest("5K4W6rqBFWDnAN6FQUkS6x");
+            _service.MakeRequest("5K4W6rqBFWDnAN6FQUkS6x");
         }
 
         [Category("Happy path")]
@@ -35,10 +35,10 @@ namespace API_Testing_Mini_project
         private GetArtistUserService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new GetArtistUserService();
-            await _service.MakeRequest("InvalidId");
+            _service.MakeRequest("InvalidId");
         }
 
         [Category("Sad path")]
@@ -62,10 +62,10 @@ namespace API_Testing_Mini_project
         private GetArtistUserService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new GetArtistUserService();
-            await _service.MakeRequest("");
+            _service.MakeRequest("");
         }
 
         [Category("Sad path")]

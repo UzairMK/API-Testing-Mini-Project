@@ -17,15 +17,16 @@ namespace API_Testing_Mini_project
 
         public GetAlbumsService()
         {
-            CallManager = new CallManager();
+            CallManager = new GetManager();
             GetAlbumsDTO = new DTO<GetAlbumsModel>();
         }
 
-        public async Task MakeRequest(string searchParameter)
+        public void MakeRequest(string searchParameter)
         {
             ArtistSelected = searchParameter;
+            string resource = $"v1/search?q={searchParameter}&type=artist";
 
-            Response = await CallManager.MakeGetAlbumRequestAsync(searchParameter);
+            Response = CallManager.MakeRequest(resource);
 
             JsonResponse = JObject.Parse(Response);
 
