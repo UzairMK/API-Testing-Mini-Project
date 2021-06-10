@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API_Testing_Mini_project.Service
+namespace API_Testing_Mini_project
 {
     class DeletePlaylistService
     {
@@ -23,9 +23,17 @@ namespace API_Testing_Mini_project.Service
             {
                 IdSelected = Id;
 
-                Response = await CallManager.MakeGetArtistUserRequestAsync(Id);
+                Response = await CallManager.MakeDeletePlaylistRequestAsync(Id);
 
+            try
+            {
                 JsonResponse = JObject.Parse(Response);
+            }
+            catch 
+            {
+                JsonResponse = new JObject();
+            }
+   
             }
         }
     }

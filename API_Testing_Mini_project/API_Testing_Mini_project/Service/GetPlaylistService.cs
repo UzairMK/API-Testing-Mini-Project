@@ -25,9 +25,17 @@ namespace API_Testing_Mini_project
         {
             IdSelected = Id;
 
-            Response = await CallManager.MakeGetArtistUserRequestAsync(Id);
+            Response = await CallManager.MakeGetSinglePlaylistRequestAsync(Id);
 
-            JsonResponse = JObject.Parse(Response);
+            try
+            {
+                JsonResponse = JObject.Parse(Response);
+            }
+            catch 
+            {
+                JsonResponse = new JObject();
+            }
+            
 
             GetPlaylistDTO.DeserealizeResponse(Response);
         }

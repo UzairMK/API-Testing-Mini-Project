@@ -9,6 +9,7 @@ namespace API_Testing_Mini_project
         private readonly IRestClient _client;
 
         public string StatusDescription { get; set; }
+        public int StatusCode { get; set; }
 
         public CallManager()
         {
@@ -22,7 +23,8 @@ namespace API_Testing_Mini_project
 
             var response = await _client.ExecuteAsync(request);
 
-            StatusDescription = response.StatusDescription.ToString();
+            StatusCode = (int)response.StatusCode;
+            StatusDescription = response.StatusDescription;
 
             return response.Content;
         }
@@ -82,10 +84,7 @@ namespace API_Testing_Mini_project
 
         public async Task<string> MakePostCreatePlaylistRequestAsync(string iD)
         {
-            var request = new RestRequest(Method.POST)
-            {
-                Resource = $"v1/users/ghastlykid/playlists"
-            };
+         
 
             JObject body = new JObject
             {
@@ -93,8 +92,12 @@ namespace API_Testing_Mini_project
                 new JProperty("description", "Test"),
                 new JProperty("public", "false")
             };
-
-            request.AddJsonBody(body);
+            
+            var request = new RestRequest(Method.POST)
+            {
+                Resource = $"v1/users/{iD}/playlists"
+            };
+            request.AddJsonBody(body.ToString());
 
             return await ExecuteRequestAsync(request);
         }
@@ -103,7 +106,7 @@ namespace API_Testing_Mini_project
         {
             var request = new RestRequest(Method.GET)
             {
-                Resource = $"v1/playlists/{iD}?fields=name%2Cdescription%2Ctracks"
+                Resource = $"v1/playlists/{iD}"
             };
 
             return await ExecuteRequestAsync(request);
