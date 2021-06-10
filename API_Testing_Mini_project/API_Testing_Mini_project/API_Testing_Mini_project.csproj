@@ -68,8 +68,8 @@
     <Compile Include="Service\HTTPManager\DeleteManager.cs" />
     <Compile Include="Service\HTTPManager\GetManager.cs" />
     <Compile Include="Service\HTTPManager\CallManager.cs" />
-    <Compile Include="Service\HTTPManager\ICallManager2.cs" />
     <Compile Include="Service\HTTPManager\ICallManager.cs" />
+    <Compile Include="Service\HTTPManager\ICallManager3.cs" />
     <Compile Include="Service\PutFollowService.cs" />
     <Compile Include="Tests\GetAlbumsTests.cs" />
     <Compile Include="Tests\UnfollowArtistUserTests.cs" />

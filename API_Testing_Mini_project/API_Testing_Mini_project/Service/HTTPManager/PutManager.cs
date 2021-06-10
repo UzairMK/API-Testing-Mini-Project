@@ -2,7 +2,7 @@
 
 namespace API_Testing_Mini_project
 {
-    public class PutManager : ICallManager2
+    public class PutManager : ICallManager
     {
         public int StatusCode { get; set; }
         public string StatusDescription { get; set; }

@@ -9,10 +9,10 @@ namespace API_Testing_Mini_project
         private PutFollowService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new PutFollowService();
-            await _service.MakeRequest("artist", "2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6");
+            _service.MakeRequest("artist", "2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6");
         }
 
         [Category("Happy path")]
@@ -29,10 +29,10 @@ namespace API_Testing_Mini_project
         private PutFollowService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new PutFollowService();
-            await _service.MakeRequest("artist", "InvalidId");
+            _service.MakeRequest("artist", "InvalidId");
         }
 
         [Category("Sad path")]
@@ -56,10 +56,10 @@ namespace API_Testing_Mini_project
         private PutFollowService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new PutFollowService();
-            await _service.MakeRequest("artist", "");
+            _service.MakeRequest("artist", "");
         }
 
         [Category("Sad path")]
@@ -83,10 +83,10 @@ namespace API_Testing_Mini_project
         private PutFollowService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new PutFollowService();
-            await _service.MakeRequest("invalidtype", "2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6");
+            _service.MakeRequest("invalidtype", "2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6");
         }
 
         [Category("Sad path")]
@@ -110,10 +110,10 @@ namespace API_Testing_Mini_project
         private PutFollowService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new PutFollowService();
-            await _service.MakeRequest("", "2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6");
+            _service.MakeRequest("", "2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6");
         }
 
         [Category("Sad path")]
@@ -137,11 +137,11 @@ namespace API_Testing_Mini_project
         private PutFollowService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new PutFollowService();
-            await _service.MakeRequest("artist", "2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6");
-            await _service.MakeRequest("artist", "2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6");
+            _service.MakeRequest("artist", "2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6");
+            _service.MakeRequest("artist", "2CIMQHirSU0MQqyYHq0eOx%2C57dN52uHvrHOxijzpIgu3E%2C1vCWHaC5f2uS3yhpwWbIA6");
         }
 
         [Category("Sad path")]

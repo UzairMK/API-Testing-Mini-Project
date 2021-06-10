@@ -17,15 +17,16 @@ namespace API_Testing_Mini_project
 
         public DeleteFollowService()
         {
-            CallManager = new CallManager();
+            CallManager = new DeleteManager();
         }
 
-        public async Task MakeRequest(string type, string iD)
+        public void MakeRequest(string type, string iD)
         {
             Type = type;
             Id = iD;
+            string resource = $"v1/me/following?type={type}&ids={iD}";
 
-            Response = await CallManager.MakePutFollowRequestAsync(type, iD);
+            Response = CallManager.MakeRequest(resource);
 
             try
             {

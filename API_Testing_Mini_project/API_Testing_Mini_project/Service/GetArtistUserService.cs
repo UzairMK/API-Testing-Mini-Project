@@ -17,15 +17,16 @@ namespace API_Testing_Mini_project
 
         public GetArtistUserService()
         {
-            CallManager = new CallManager();
+            CallManager = new GetManager();
             GetArtistUserDTO = new DTO<GetArtistUserModel>();
         }
 
-        public async Task MakeRequest(string Id)
+        public void MakeRequest(string Id)
         {
             IdSelected = Id;
+            string resourse = $"v1/artists/{Id}";
 
-            Response = await CallManager.MakeGetArtistUserRequestAsync(Id);
+            Response = CallManager.MakeRequest(resourse);
 
             JsonResponse = JObject.Parse(Response);
 

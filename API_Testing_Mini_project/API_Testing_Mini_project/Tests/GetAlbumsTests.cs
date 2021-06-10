@@ -9,10 +9,10 @@ namespace API_Testing_Mini_project
         private GetAlbumsService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new GetAlbumsService();
-            await _service.MakeRequest("drake");
+            _service.MakeRequest("drake");
         }
 
         [Category("Happy path")]
@@ -36,10 +36,10 @@ namespace API_Testing_Mini_project
         private GetAlbumsService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new GetAlbumsService();
-            await _service.MakeRequest("1454164317157");
+            _service.MakeRequest("1454164317157");
         }
 
         [Category("Sad path")]
@@ -63,10 +63,10 @@ namespace API_Testing_Mini_project
         private GetAlbumsService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new GetAlbumsService();
-            await _service.MakeRequest("");
+            _service.MakeRequest("");
         }
 
         [Category("Sad path")]
