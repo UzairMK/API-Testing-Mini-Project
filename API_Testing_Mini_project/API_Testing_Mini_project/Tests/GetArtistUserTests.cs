@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace API_Testing_Mini_project
@@ -19,9 +18,8 @@ namespace API_Testing_Mini_project
         [Test]
         public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe200()
         {
-            //Assert.That(_service.JsonResponse["status"].ToString(), Is.EqualTo("200"));
+            Assert.That(_service.CallManager.StatusCode, Is.EqualTo(200));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("OK"));
-            //Assert.That(_service.GetArtistUserDTO.Response., Is.EqualTo(200));
         }
 
         [Category("Happy path")]

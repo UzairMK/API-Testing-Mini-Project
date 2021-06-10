@@ -11,8 +11,6 @@ namespace API_Testing_Mini_project
     {
         public ICallManager CallManager { get; set; }
         public JObject JsonResponse { get; set; }
-
-        public string IdSelected { get; set; }
         public DTO<GetFollowingArtistModel> FollowingArtistsDTO { get; set; }
         public string Response { get; set; }
 
