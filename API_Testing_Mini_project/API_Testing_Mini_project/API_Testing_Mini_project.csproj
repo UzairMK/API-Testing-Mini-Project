@@ -66,6 +66,7 @@
     <Compile Include="Service\HTTPManager\CallManager.cs" />
     <Compile Include="Service\HTTPManager\ICallManager.cs" />
     <Compile Include="Service\PutFollowService.cs" />
+    <Compile Include="Tests\GetAlbumsTests.cs" />
     <Compile Include="Tests\UnfollowArtistUserTests.cs" />
     <Compile Include="Tests\FollowArtistUserTests.cs" />
     <Compile Include="Tests\GetFollowingArtistTests.cs" />

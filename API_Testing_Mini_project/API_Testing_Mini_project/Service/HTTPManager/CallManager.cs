@@ -39,12 +39,12 @@ namespace API_Testing_Mini_project
             return await ExecuteRequestAsync(request);
         }
 
-        public async Task<string> MakeGetAlbumRequestAsync(string artistName)
+        public async Task<string> MakeGetAlbumRequestAsync(string searchParameter)
         {
 
             var request = new RestRequest(Method.GET)
             {
-                Resource = $"v1/search?q={artistName}&type=artist"
+                Resource = $"v1/search?q={searchParameter}&type=artist"
             };
 
             return await ExecuteRequestAsync(request);

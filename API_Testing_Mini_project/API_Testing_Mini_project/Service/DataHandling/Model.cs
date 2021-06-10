@@ -40,30 +40,21 @@ namespace API_Testing_Mini_project
         public int width { get; set; }
     }
 
-    public class GetAblumsModel : IResponse
-    {
 
-    }
-
-
-    public class GetFollowingArtistModel : IResponse
+    public class GetAlbumsModel : IResponse
     {
         public Artists artists { get; set; }
     }
 
     public class Artists
     {
-        public Item[] items { get; set; }
-        public object next { get; set; }
-        public int total { get; set; }
-        public Cursors cursors { get; set; }
-        public int limit { get; set; }
         public string href { get; set; }
-    }
-
-    public class Cursors
-    {
-        public object after { get; set; }
+        public Item[] items { get; set; }
+        public int limit { get; set; }
+        public string next { get; set; }
+        public int offset { get; set; }
+        public object previous { get; set; }
+        public int total { get; set; }
     }
 
     public class Item
@@ -80,4 +71,23 @@ namespace API_Testing_Mini_project
         public string uri { get; set; }
     }
 
+    public class GetFollowingArtistModel : IResponse
+    {
+        public AlbumArtists artists { get; set; }
+    }
+
+    public class AlbumArtists
+    {
+        public Item[] items { get; set; }
+        public object next { get; set; }
+        public int total { get; set; }
+        public Cursors cursors { get; set; }
+        public int limit { get; set; }
+        public string href { get; set; }
+    }
+
+    public class Cursors
+    {
+        public object after { get; set; }
+    }
 }
