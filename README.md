@@ -30,7 +30,7 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 ## Class Diagrams
 
-​	Below are images of the class diagrams. There is a class diagram for the services and a class diagram for the models that the JSON responses were stored in.
+​	Below are images of the class diagrams. There is a class diagram for the services and a class diagram for some of the models that the JSON responses were stored in.
 
 ### Services Class Diagram
 
@@ -132,17 +132,47 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 #### What We Have Learnt
 
+​	This project has opened our eyes to many things in this section of the retrospective we plan to discuss the most important / relevant lessons learnt during this small group project.
 
+​	Most prevalent skill learnt was using GitHub collaboratively . We have gained experience with GitHub for our own singular projects so we knew, so we had an inkling of what to expect going into it which gave us a head start but using it collaboratively raised its own issues. A main issue we had was attempting too many pull requests unnecessarily, the issue with this is that it is very time consuming, time that would be better spent creating new tests or methods etc.
+
+​	The next thing we learnt was that small errors should be handled there and then instead of delegating it to the person who made the error. This, like the pull request, is time consuming. If the error is small that can be fixed in one or two lines it will take a long time for the error spotter to contact the error maker, tell them the error, get them to fix it, then create a pull request. The whole cycle just lacks efficiency and goes around in an unnecessary circle.
+
+​	Other than the aforementioned lessons learnt, we have gained a deeper understanding of the tools and concepts we have learnt. Tools in this case being, Postman which is used for API development and Spotify the program we created the API based off, and concepts in this place meaning the creation of service layers, independency injections, and service layer testing. The use of all of these tools and concepts have improved significantly for all members of our group through using them.
 
 #### What We Would Do Differently Next Time
 
+​	Although this project was done well there are a few things could do differently to get the same or better results so in this section I am going to go through them.
 
+​	To start with if we were to do anything differently it would be to stop the unnecessary pull request therefore opening up more time for us to work on other parts of the program. 
+
+​	The next thing we could change would be the amount of functionality we added. that being said the only reason the functionality was limited was because of time constraints.
+
+​	The final thing we could do differently would he to choose a whole different API, Spotify was fun to work with but there would be no gain in doing it again.
 
 #### Further Improvements
 
-- 
+​	Our project is good but not perfect (obviously) so here are a list of things we could have done to make it better:
+
+- Add an interface
+- Create much more functionality
+- Add good looking U.I for customer interaction
+- Add a few more Tests to make the **Testing Framework** more robust
 
 
 
 ### How To Extend Functionality
 
+#### Adding other requests (services)
+
+​	If one want to test other requests the Spotify API has to offer there is a "TemplateService" class for you to duplicate and edit, to preform other requests. In the duplicated template, rename the class and constructor appropriately. Uncomment the line in the constructor and make sure the `CallManager` is assigned the right manager depending on the request type (e.g. GET requests should use the GetManager, DELETE requests should use the DeleteManager, ...). In the MakeRequest method, type the resource the request uses into the resource string (the resource is the part of the request that comes after https://api.spotify.com/). If there are changeable parameters in the resource, you can add them to the method's parameters and have the method's parameters be concatenated into the right place on the resource string. Finally, if you would like to store the parameters you used when you called the MakeRequest method, feel free to make properties with the other properties and assign the parameter values to those properties in the method. Use the other service classes as examples if you get stuck following these instructions.
+
+#### Required manager not available
+
+​	If the manager for the type of request you are making is not available, just duplicate the GetManager, rename (file name and class name) it appropriately and change the "GET" on line 12 where is says 
+
+```c#
+var request = new RestRequest(Method.GET)
+```
+
+to the request type needed.
