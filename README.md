@@ -118,7 +118,7 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 #### Kanban Board at the end
 
-
+![AfterSprint2](Images/AfterSprint2.png)
 
 #### Sprint Review
 
