@@ -8,6 +8,7 @@ namespace API_Testing_Mini_project
     {
         private readonly IRestClient _client;
 
+        public string StatusCode { get; set; }
         public string StatusDescription { get; set; }
 
         public CallManager()
@@ -22,6 +23,7 @@ namespace API_Testing_Mini_project
 
             var response = await _client.ExecuteAsync(request);
 
+            StatusCode = response.StatusCode.ToString();
             StatusDescription = response.StatusDescription.ToString();
 
             return response.Content;
@@ -37,12 +39,12 @@ namespace API_Testing_Mini_project
             return await ExecuteRequestAsync(request);
         }
 
-        public async Task<string> MakeGetAlbumRequestAsync(string name, string type)
+        public async Task<string> MakeGetAlbumRequestAsync(string artistName)
         {
 
             var request = new RestRequest(Method.GET)
             {
-                Resource = $"v1/search?q={name}&type={type}"
+                Resource = $"v1/search?q={artistName}&type=artist"
             };
 
             return await ExecuteRequestAsync(request);

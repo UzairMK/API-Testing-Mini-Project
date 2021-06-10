@@ -11,8 +11,7 @@ namespace API_Testing_Mini_project
     {
         public ICallManager CallManager { get; set; }
         public JObject JsonResponse { get; set; }
-        public string IdSelected { get; set; }
-        public string typeSelected { get; set; }
+        public string ArtistSelected { get; set; }
         //public DTO<> NameOfDTO { get; set; }
         public string Response { get; set; }
 
@@ -22,12 +21,11 @@ namespace API_Testing_Mini_project
             //NameOfDTO = new DTO<>();
         }
 
-        public async Task MakeRequest(string Id, string type)
+        public async Task MakeRequest(string artistName)
         {
-            IdSelected = Id;
-            typeSelected = type;
+            ArtistSelected = artistName;
 
-            Response = await CallManager.MakeGetAlbumRequestAsync(Id, type);
+            Response = await CallManager.MakeGetAlbumRequestAsync(artistName);
 
             JsonResponse = JObject.Parse(Response);
 
