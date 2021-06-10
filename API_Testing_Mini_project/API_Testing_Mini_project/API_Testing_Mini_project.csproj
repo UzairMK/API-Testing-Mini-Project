@@ -66,14 +66,28 @@
     <Compile Include="Service\GetArtistUserService.cs" />
     <Compile Include="Service\GetFollowingArtistService.cs" />
     <Compile Include="Service\GetPlaylistService.cs" />
+<<<<<<< HEAD
     <Compile Include="Service\HTTPManager\CallManager.cs" />
+=======
+    <Compile Include="Service\HTTPManager\ExecuteRequest.cs" />
+    <Compile Include="Service\HTTPManager\PostManager.cs" />
+    <Compile Include="Service\HTTPManager\PutManager.cs" />
+    <Compile Include="Service\HTTPManager\DeleteManager.cs" />
+    <Compile Include="Service\HTTPManager\GetManager.cs" />
+>>>>>>> 976dd6ac9f70778bcf8b3de6d82e006e85428399
     <Compile Include="Service\HTTPManager\ICallManager.cs" />
     <Compile Include="Service\PostCreatePlaylistService.cs" />
     <Compile Include="Service\PutFollowService.cs" />
     <Compile Include="Tests\DeletePlaylistTests.cs" />
+<<<<<<< HEAD
     <Compile Include="Tests\GetAllPlaylistTests.cs" />
     <Compile Include="Tests\GetPlaylistTest.cs" />
     <Compile Include="Tests\PostCreatePlaylistTests.cs" />
+=======
+    <Compile Include="Tests\GetAlbumsTests.cs" />
+    <Compile Include="Tests\GetAllPlaylistTests.cs" />
+    <Compile Include="Tests\GetPlaylistTest.cs" />
+>>>>>>> 976dd6ac9f70778bcf8b3de6d82e006e85428399
     <Compile Include="Tests\UnfollowArtistUserTests.cs" />
     <Compile Include="Tests\FollowArtistUserTests.cs" />
     <Compile Include="Tests\GetFollowingArtistTests.cs" />
@@ -82,6 +96,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AppConfig\app.config" />
+    <None Include="ClassDiagram2.cd" />
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

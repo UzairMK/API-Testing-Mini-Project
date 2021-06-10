@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using NUnit.Framework;
 
 namespace API_Testing_Mini_project
@@ -10,28 +8,28 @@ namespace API_Testing_Mini_project
         private GetFollowingArtistService _service;
 
         [OneTimeSetUp]
-        public async Task OneTimeSetUp()
+        public void OneTimeSetUp()
         {
             _service = new GetFollowingArtistService();
-            await _service.MakeRequest();
+            _service.MakeRequest();
         }
 
         [Category("Happy path")]
         [Test]
-        public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe200()
+        public void GivenGetFollowingArtistRequestMade_WhenResponseReceived_ThenResponseStatusShouldBe200()
         {
-            //Assert.That(_service.JsonResponse["status"].ToString(), Is.EqualTo("200"));
+            Assert.That(_service.CallManager.StatusCode, Is.EqualTo(200));
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("OK"));
-            //Assert.That(_service.GetArtistUserDTO.Response., Is.EqualTo(200));
         }
 
         [Category("Happy path")]
         [Test]
-        public void GivenGetArtistUserRequestMade_WhenResponseReceived_ThenResponseNameShouldBeKanyeWest()
+        public void GivenGetFollowingArtistRequestMade_WhenResponseReceived_ThenResponseShouldContainBPOLYMATH()
         {
-            Assert.That(_service.FollowingArtistsDTO.Response.artists.items[0].name, Is.EqualTo("B POLYMATH"));
+            Assert.That(_service.FollowingArtistsDTO.Response.artists.items.Where(x => x.name == "B POLYMATH").FirstOrDefault(), Is.Not.Null);
         }
     }
+<<<<<<< HEAD
 
     public class WhenGetFollowingArtistServiceIsCalled_WithAnInvalidId
     {
@@ -115,3 +113,6 @@ namespace API_Testing_Mini_project
         }
     }
 }
+=======
+}
+>>>>>>> 976dd6ac9f70778bcf8b3de6d82e006e85428399

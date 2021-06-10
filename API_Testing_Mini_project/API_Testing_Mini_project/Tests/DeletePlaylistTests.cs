@@ -12,10 +12,17 @@ namespace API_Testing_Mini_project
         DeletePlaylistService _service;
 
         [OneTimeSetUp]
+<<<<<<< HEAD
         public async Task Setup()
         {
             _service = new DeletePlaylistService();
             await _service.MakeRequest("5RuyNWWlh2hyexZKtVTsQy");
+=======
+        public void Setup()
+        {
+            _service = new DeletePlaylistService();
+            _service.MakeRequest("5RuyNWWlh2hyexZKtVTsQy");
+>>>>>>> 976dd6ac9f70778bcf8b3de6d82e006e85428399
         }
 
         [Category("Happy Path")]
@@ -33,10 +40,17 @@ namespace API_Testing_Mini_project
         DeletePlaylistService _service;
 
         [OneTimeSetUp]
+<<<<<<< HEAD
         public async Task Setup()
         {
             _service = new DeletePlaylistService();
             await _service.MakeRequest("WrongId");
+=======
+        public void Setup()
+        {
+            _service = new DeletePlaylistService();
+            _service.MakeRequest("WrongId");
+>>>>>>> 976dd6ac9f70778bcf8b3de6d82e006e85428399
         }
 
         [Category("Sad Path")]
@@ -52,10 +66,17 @@ namespace API_Testing_Mini_project
             DeletePlaylistService _service;
 
             [OneTimeSetUp]
+<<<<<<< HEAD
             public async Task Setup()
             {
                 _service = new DeletePlaylistService();
                 await _service.MakeRequest("");
+=======
+            public void Setup()
+            {
+                _service = new DeletePlaylistService();
+                _service.MakeRequest("");
+>>>>>>> 976dd6ac9f70778bcf8b3de6d82e006e85428399
             }
 
             [Category("Sad Path")]

@@ -1,18 +1,31 @@
 ﻿using NUnit.Framework;
 using System.Threading.Tasks;
 
+<<<<<<< HEAD
 
 namespace API_Testing_Mini_project
 {
     class GetPlaylistTest
+=======
+namespace API_Testing_Mini_project
+{
+    class GetPlaylistTest_WithValidID
+>>>>>>> 976dd6ac9f70778bcf8b3de6d82e006e85428399
     {
         private GetPlaylistService _service;
 
         [OneTimeSetUp]
+<<<<<<< HEAD
         public async Task OneTimeSetUp()
         {
             _service = new GetPlaylistService();
             await _service.MakeRequest("7sf6IyQz843FD1Ndfmq3Wp");
+=======
+        public void OneTimeSetUp()
+        {
+            _service = new GetPlaylistService();
+            _service.MakeRequest("7sf6IyQz843FD1Ndfmq3Wp");
+>>>>>>> 976dd6ac9f70778bcf8b3de6d82e006e85428399
         }
 
         [Category("Happy Path")]
@@ -42,10 +55,17 @@ namespace API_Testing_Mini_project
         private GetPlaylistService _service;
 
         [OneTimeSetUp]
+<<<<<<< HEAD
         public async Task OneTimeSetUp()
         {
             _service = new GetPlaylistService();
             await _service.MakeRequest("invalidId");
+=======
+        public void OneTimeSetUp()
+        {
+            _service = new GetPlaylistService();
+            _service.MakeRequest("invalidId");
+>>>>>>> 976dd6ac9f70778bcf8b3de6d82e006e85428399
         }
 
         [Category("Sad Path")]
@@ -77,6 +97,7 @@ namespace API_Testing_Mini_project
 
         
         [OneTimeSetUp]
+<<<<<<< HEAD
         public async Task OneTimeSetUp()
         {
             _service = new GetPlaylistService();
@@ -89,11 +110,21 @@ namespace API_Testing_Mini_project
         public void GivenGetPlaylistRequestMade_WhenResponseReceived_ThenResponseNameShouldBeNull()
         {
             Assert.That(_service.GetPlaylistDTO.Response.name, Is.EqualTo(null));
+=======
+        public void OneTimeSetUp()
+        {
+            _service = new GetPlaylistService();
+            _service.MakeRequest("");
+>>>>>>> 976dd6ac9f70778bcf8b3de6d82e006e85428399
         }
 
         [Category("Sad Path")]
         [Test]
+<<<<<<< HEAD
         public void GivenGetPlaylistRequestMade_WhenResponseReceived_ThenResponseStatusShouldBeNull()
+=======
+        public void GivenGetPlaylistRequestMade_WhenResponseReceived_ThenResponseStatusShouldNotFound()
+>>>>>>> 976dd6ac9f70778bcf8b3de6d82e006e85428399
         {
             Assert.That(_service.CallManager.StatusDescription, Is.EqualTo("Not Found"));
         }
