@@ -60,9 +60,9 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 #### Sprint Goals
 
-​	The API we have selected to test is the Spotify API. The goal of the first sprint is to select which requests we would like to test because because there are a lot of requests to choose from. While selecting the requests we will also you use Postman to make sure we know how the request works. After confirming the requests we are going to test we will build up the project's backlog and move whatever we aim to finish in this sprint to the sprint backlog.
+​	The API we have selected to test is the Spotify API. The goal of the first sprint is to select which requests we would like to test because because there are a lot of requests to choose from. While selecting the requests we will also use Postman to make sure we know how the request works. After confirming the requests we are going to test we will build up the project's backlog and move whatever we aim to finish in this sprint to the sprint backlog.
 
-​	In terms of blockers, we have two. The first one is the team lacks experience using GitHub collaboratively so this will slow down the pace of work and the second one is that one of the group members does not use Spotify and therefore is not aware of how the application is used.
+​	In terms of blockers, we have two. The first one is, the team lacks experience using GitHub collaboratively so this will slow down the pace of work and the second one is that one of the group members does not use Spotify and therefore is not aware of how the application is used.
 
 #### Sprint 1: Definition of done
 
@@ -88,7 +88,7 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 #### Sprint Retrospective
 
-​	The biggest lesson we learnt today is not to make frequent pull requests to the dev branch because this is time consuming and most the pull requests are not necessary. Also when the group is collating their work, small errors should be fixed on one machine instead of having the person responsible for that file fixing the problem on their machine and making another pull request because, again, this is time consuming with no benefit.
+​	The biggest lesson we learnt today is not to make frequent pull requests to the dev branch because this is time consuming and most the pull requests were not necessary. Also when the group is collating their work, small errors should be fixed on one machine instead of having the person responsible for that file fixing the problem on their machine and making another pull request because, again, this is time consuming with no benefit.
 
 ### Sprint 2
 
@@ -122,15 +122,21 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 #### Sprint Review
 
+​	This sprint went smoothly. We finished all the work we assigned to the sprint and have a presentation ready for tomorrow.
 
+​	The "No Content" response problem was solved using a try-catch block on the JObject because it was the one throwing an error due to there being no content to parse.
+
+​	We refactored the way we sent and received requests by breaking up the call manager into the different request type managers and moving code around. Now it is very easy to add new requests, all one has to do is make a new service class for the request they want to test.
 
 #### Sprint Retrospective
 
+​	Although the presentation was ready we did not do a dry run through it to make sure we are happy with the content we are going to present and  the way we are going to present it. It would have been nice to set some time aside to do this. Instead we are now going to meet together 1 hour before the presentation to practice and make any final changes.
 
 
-### Project Retrospective
 
-#### What We Have Learnt
+## Project Retrospective
+
+### What We Have Learnt
 
 ​	This project has opened our eyes to many things in this section of the retrospective we plan to discuss the most important / relevant lessons learnt during this small group project.
 
@@ -140,7 +146,7 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 ​	Other than the aforementioned lessons learnt, we have gained a deeper understanding of the tools and concepts we have learnt. Tools in this case being, Postman which is used for API development and Spotify the program we created the API based off, and concepts in this place meaning the creation of service layers, independency injections, and service layer testing. The use of all of these tools and concepts have improved significantly for all members of our group through using them.
 
-#### What We Would Do Differently Next Time
+### What We Would Do Differently Next Time
 
 ​	Although this project was done well there are a few things could do differently to get the same or better results so in this section I am going to go through them.
 
@@ -150,29 +156,38 @@ The aim of this project is to choose an API and test it using RestSharp in Visua
 
 ​	The final thing we could do differently would he to choose a whole different API, Spotify was fun to work with but there would be no gain in doing it again.
 
-#### Further Improvements
+### Further Improvements
 
 ​	Our project is good but not perfect (obviously) so here are a list of things we could have done to make it better:
 
-- Add an interface
 - Create much more functionality
-- Add good looking U.I for customer interaction
-- Add a few more Tests to make the **Testing Framework** more robust
+- Add good looking UI for customer interaction
+- Add a few more Tests
 
 
 
-### How To Extend Functionality
+## How To Use
 
-#### Adding other requests (services)
+​	Simply create an instance of a service class whose request you want to test and call the service class's `MakeRequest` method. After the method has been called with whatever parameters you put into the method, the service class will store the response. The `CallManager` variable contains the status code and description , the `JsonResponse` variable  contains the JSON response from the request in the form of a JObject, the `Response` variable contains the JSON response as a string and if the service class has a DTO variable, it contains the JSON response mapped onto C# classes. These variables can be used to test the API's responses.
 
-​	If one want to test other requests the Spotify API has to offer there is a "TemplateService" class for you to duplicate and edit, to preform other requests. In the duplicated template, rename the class and constructor appropriately. Uncomment the line in the constructor and make sure the `CallManager` is assigned the right manager depending on the request type (e.g. GET requests should use the GetManager, DELETE requests should use the DeleteManager, ...). In the MakeRequest method, type the resource the request uses into the resource string (the resource is the part of the request that comes after https://api.spotify.com/). If there are changeable parameters in the resource, you can add them to the method's parameters and have the method's parameters be concatenated into the right place on the resource string. Finally, if you would like to store the parameters you used when you called the MakeRequest method, feel free to make properties with the other properties and assign the parameter values to those properties in the method. Use the other service classes as examples if you get stuck following these instructions.
 
-#### Required manager not available
 
-​	If the manager for the type of request you are making is not available, just duplicate the GetManager, rename (file name and class name) it appropriately and change the "GET" on line 12 where is says 
+## How To Extend Functionality
+
+### Adding other requests (services)
+
+​	If one want to test other requests the Spotify API has to offer there is a "TemplateService" class for you to duplicate and edit, to preform other requests. In the duplicated template, rename the class and constructor appropriately. Uncomment the line in the constructor and make sure the `CallManager` is assigned the right manager depending on the request type (e.g. GET requests should use the `GetManager`, DELETE requests should use the `DeleteManager`, ...). In the `MakeRequest` method, type the resource the request uses into the resource string (the resource is the part of the request that comes after https://api.spotify.com/). If there are changeable parameters in the resource, you can add them to the method's parameters and have the method's parameters be concatenated into the right place on the resource string. Finally, if you would like to store the parameters you used when you called the `MakeRequest` method, feel free to make properties with the other properties and assign the parameter values to those properties in the method. Use the other service classes as examples if you get stuck following these instructions.
+
+### Required manager not available
+
+​	If the manager for the type of request you are making is not available, just duplicate the `GetManager`, rename (file name and class name) it appropriately and change the "GET" on line 12 where is says 
 
 ```c#
 var request = new RestRequest(Method.GET)
 ```
 
 to the request type needed.
+
+### Model for DTO
+
+​	If you want to make use of the DTO class to map your JSON response to C# classes, make sure you have C# classes that follow the structure and naming of the JSON response in the same namespace. You can add your model with the other models in the "Model.cs" file. Just make sure the root object inherits the `IResponse` interface, any duplicate classes are removed and if two classes have the same name but are different, rename one of them, also making sure you rename variable data types where that class was used.
