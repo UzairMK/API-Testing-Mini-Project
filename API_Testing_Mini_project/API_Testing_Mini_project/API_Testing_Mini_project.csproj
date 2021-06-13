@@ -59,6 +59,7 @@
     <Compile Include="Service\DataHandling\DTO.cs" />
     <Compile Include="Service\DataHandling\IResponse.cs" />
     <Compile Include="Service\DataHandling\Model.cs" />
+    <Compile Include="Service\TempleteService.cs" />
     <Compile Include="Service\DeleteFollowService.cs" />
     <Compile Include="Service\DeletePlaylistService.cs" />
     <Compile Include="Service\GetAlbumsService.cs" />
